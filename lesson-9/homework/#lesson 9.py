@@ -44,28 +44,32 @@ person.display()
 
 #3
 
-operator = input("enter an operator(+ - * / ): ")
-num1 = float(input("enter 1st number: "))
-num2 = float(input("enter 2nd number: "))
+class Calculator:
+    def add(self, a, b):
+        return a + b
 
-if operator == "+":
-    result = num1 + num2
-    print(round(result, 2))
+    def subtract(self, a, b):
+        return a - b
 
-elif operator == "-":
-    result = num1 - num2
-    print(round(result, 2))
+    def multiply(self, a, b):
+        return a * b
 
-elif operator == "*":
-    result = num1 * num2
-    print(round(result, 2))
+    def divide(self, a, b):
+        if b == 0:
+            return "Error: Division by zero is not allowed."
+        return a / b
 
-elif operator == "/":
-    result = num1 / num2
-    print(round(result, 2))
 
-else:
-    print(f"the {operator} is unvalid!")
+# Test the Calculator class
+if __name__ == "__main__":
+    calc = Calculator()
+
+    # Test cases
+    print("Addition (10 + 5):", calc.add(10, 5))
+    print("Subtraction (10 - 5):", calc.subtract(10, 5))
+    print("Multiplication (10 * 5):", calc.multiply(10, 5))
+    print("Division (10 / 5):", calc.divide(10, 5))
+    print("Division by zero (10 / 0):", calc.divide(10, 0))
 
 #4
 
