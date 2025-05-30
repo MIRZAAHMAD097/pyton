@@ -28,19 +28,25 @@ else:
 
 
 #3
-def even_numbers(a, b):
-    if a % 2!= 0:
-        a +=1
-    if b % 2!= 0:
-        b-=1
-    if a>b:
-        return[]
-    return list(range(a , b +1, 2))
-print(even_numbers(3, 10))
+def even_numbers_if_else(a, b):
+       if a > b:
+        a, b = b, a
 
-def even_without_if(a, b):
-    a +=(a %2)
-    b -=(b %2)
-    return list(range(a, b+1, 2)) * (a<=b)
+    if a % 2 != 0:
+        a += 1
 
-print(even_without_if(3, 10))
+    if b % 2 != 0:
+        b -= 1
+
+    return list(range(a, b + 1, 2))
+
+
+print(even_numbers_if_else(3, 10)) 
+
+def even_numbers_no_if_else(a, b):
+    start = a + (a % 2)  
+    end = b - (b % 2)    
+    return list(range(min(start, end), max(a, b) + 1, 2))
+
+
+print(even_numbers_no_if_else(3, 10))  
